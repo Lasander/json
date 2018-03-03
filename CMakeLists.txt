@@ -56,23 +56,23 @@ if (MSVC AND CMAKE_VERSION VERSION_GREATER "3.2.2")
     set(NLOHMANN_ADD_NATVIS TRUE)
     set(NLOHMANN_NATVIS_FILE "nlohmann_json.natvis")
     target_sources(
-        ${NLOHMANN_JSON_TARGET_NAME} 
-        INTERFACE 
+        ${NLOHMANN_JSON_TARGET_NAME}
+        INTERFACE
             $<INSTALL_INTERFACE:${NLOHMANN_NATVIS_FILE}>
-            $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/${NLOHMANN_NATVIS_FILE}>  
+            $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/${NLOHMANN_NATVIS_FILE}>
     )
 endif()
-           
+
 ##
 ## TESTS
 ## create and configure the unit test target
 ##
-include(CTest) #adds option BUILD_TESTING (default ON)
+# include(CTest) #adds option BUILD_TESTING (default ON)
 
-if(BUILD_TESTING AND JSON_BuildTests)
-    enable_testing()
-    add_subdirectory(test)
-endif()
+# if(BUILD_TESTING AND JSON_BuildTests)
+#     enable_testing()
+#     add_subdirectory(test)
+# endif()
 
 ##
 ## INSTALL
